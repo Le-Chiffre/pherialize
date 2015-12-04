@@ -267,7 +267,7 @@ public class Unserializer
             value = unserializeObject();
             array.put(key, value);
         }
-        this.pos++;
+        this.pos += 2;
         return result;
     }
 
