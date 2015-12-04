@@ -160,13 +160,15 @@ public class Unserializer
 
     private Mixed unserializeInteger()
     {
-        Integer result;
+        Long result;
         int pos;
 
         pos = this.data.indexOf(';', this.pos + 2);
-        result = Integer.valueOf(this.data.substring(this.pos + 2, pos));
+        result = Long.valueOf(this.data.substring(this.pos + 2, pos));
         this.pos = pos + 1;
-        return new Mixed(result);
+
+        if(result <= Integer.MAX_VALUE) return new Mixed(result.intValue());
+        else return new Mixed(result);
     }
 
 
