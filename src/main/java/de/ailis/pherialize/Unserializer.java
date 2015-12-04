@@ -268,7 +268,7 @@ public class Unserializer
             array.put(key, value);
         }
         this.pos++;
-        if(data.charAt(this.pos) == ';') {
+        if(data.length() > this.pos && data.charAt(this.pos) == ';') {
             this.pos++;
         }
         return result;
